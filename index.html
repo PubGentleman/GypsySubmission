@@ -13,7 +13,7 @@
         <p class="text-lg font-semibold text-blue-600">3473612229</p>
         <p class="text-sm text-gray-700 mb-4">After completing the payment, upload a screenshot of the transaction below.</p>
 
-        <form id="propertyForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdHjihfNHWsjapXIGJDyIQ4PMrgtLh_AvANt9zy4Xg5jJr45A/formResponse" method="POST" target="_blank">
+        <form id="propertyForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdHjihfNHWsjapXIGJDyIQ4PMrgtLh_AvANt9zy4Xg5jJr45A/viewform" method="GET">
             <div class="mb-4">
                 <label class="block text-sm font-medium">Name</label>
                 <input type="text" name="entry.2087096369" class="w-full p-2 border rounded" required>
@@ -66,30 +66,24 @@
             </div>
             <div class="mb-4">
                 <label class="block text-sm font-medium">Payment Screenshot</label>
-                <p class="text-xs text-blue-600 mt-1">You will upload your payment screenshot in the next step after form submission.</p>
+                <p class="text-xs text-blue-600 mt-1">You will be able to upload your payment screenshot in Google Forms after submitting this form.</p>
             </div>
             <div class="mb-4">
                 <label class="block text-sm font-medium">Property Photos</label>
-                <p class="text-xs text-blue-600 mt-1">You will upload your property photos in the next step after form submission.</p>
+                <p class="text-xs text-blue-600 mt-1">You will be able to upload your property photos in Google Forms after submitting this form.</p>
             </div>
             <div class="mb-4">
                 <label class="block text-sm font-medium">Property Video</label>
-                <p class="text-xs text-blue-600 mt-1">You will upload your property video in the next step after form submission.</p>
+                <p class="text-xs text-blue-600 mt-1">You will be able to upload your property video in Google Forms after submitting this form.</p>
             </div>
-            <button type="submit" class="bg-blue-600 text-white p-2 rounded w-full">Submit Property Details</button>
+            <button type="submit" class="bg-blue-600 text-white p-2 rounded w-full">Continue to File Upload</button>
         </form>
-        <p id="successMessage" class="hidden text-green-600 mt-4">Form submitted! Please upload your files in the new tab.</p>
+        <p id="successMessage" class="hidden text-green-600 mt-4">Redirecting to Google Forms for file upload...</p>
     </div>
     
     <script>
         document.getElementById('propertyForm').addEventListener('submit', function(event) {
-            // Show success message
             document.getElementById('successMessage').classList.remove('hidden');
-            // Form will submit normally to Google Forms in a new tab
-            // Reset the form after a short delay
-            setTimeout(() => {
-                this.reset();
-            }, 2000);
         });
     </script>
 </body>
