@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Property</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-lg bg-white p-8 rounded-xl shadow-lg">
+        <h2 class="text-2xl font-semibold mb-4">Submit Your Property</h2>
+        <p class="text-sm text-gray-700 mb-4">To submit your property, please send the payment via <strong>Zelle</strong> to:</p>
+        <p class="text-lg font-semibold text-blue-600">3473612229</p>
+        <p class="text-sm text-gray-700 mb-4">After completing the payment, upload a screenshot of the transaction below.</p>
+
+        <form id="propertyForm" enctype="multipart/form-data">
+            <div class="mb-4">
+                <label class="block text-sm font-medium">Name</label>
+                <input type="text" id="name" class="w-full p-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium">Email</label>
+                <input type="email" id="email" class="w-full p-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium">Phone Number</label>
+                <input type="tel" id="phone" class="w-full p-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium">Property Address</label>
+                <input type="text" id="address" class="w-full p-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium">Property Type</label>
+                <select id="propertyType" class="w-full p-2 border rounded">
+                    <option>Apartment</option>
+                    <option>House</option>
+                    <option>Condo</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium">Price (Rent/Sale)</label>
+                <input type="text" id="price" class="w-full p-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium">Description</label>
+                <textarea id="description" class="w-full p-2 border rounded" required></textarea>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium">Upload Photos</label>
+                <input type="file" id="photos" multiple class="w-full p-2 border rounded">
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium">Upload Zelle Payment Screenshot</label>
+                <input type="file" id="paymentProof" class="w-full p-2 border rounded" required>
+            </div>
+
+            <!-- Pricing Options -->
+            <div class="mb-4">
+                <label class="block text-sm font-medium">Select Your Post Type</label>
+                <select id="postType" class="w-full p-2 border rounded">
+                    <option value="basic">Basic Listing Post - $25 (One-time IG story or single post)</option>
+                    <option value="premium">Premium Post - $50 (Multi-platform: IG, TikTok, Facebook Group)</option>
+                    <option value="featured">Featured Post - $100 (Pinned for 48-72 hours)</option>
+                    <option value="featured_ads">Featured Post with Paid Ads - $150</option>
+                    <option value="video">Video Walkthrough or Custom Ad Creation - $250</option>
+                </select>
+            </div>
+
+            <!-- Additional Boost Option -->
+            <div class="mb-4">
+                <label class="block text-sm font-medium">Boost Your Post with Paid Ads</label>
+                <select id="boostOption" class="w-full p-2 border rounded">
+                    <option value="none">None</option>
+                    <option value="boost_ig">Boost on Instagram - $50</option>
+                    <option value="boost_fb">Boost on Facebook - $50</option>
+                    <option value="boost_tiktok">Boost on TikTok - $50</option>
+                    <option value="boost_all">Boost on IG, FB, TikTok - $120</option>
+                </select>
+            </div>
+
+            <button type="submit" class="bg-blue-600 text-white p-2 rounded w-full">Submit Property</button>
+        </form>
+        <p id="successMessage" class="hidden text-green-600 mt-4">Property submitted successfully!</p>
+    </div>
+    
+    <script>
+        document.getElementById('propertyForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const response = await fetch('/submit-property', {
+                method: 'POST',
+                body: formData
+            });
+            if (response.ok) {
+                document.getElementById('successMessage').classList.remove('hidden');
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html> 
