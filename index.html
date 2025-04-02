@@ -13,89 +13,81 @@
         <p class="text-lg font-semibold text-blue-600">3473612229</p>
         <p class="text-sm text-gray-700 mb-4">After completing the payment, upload a screenshot of the transaction below.</p>
 
-        <form id="propertyForm" enctype="multipart/form-data">
+        <form id="propertyForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdHjihfNHWsjapXIGJDyIQ4PMrgtLh_AvANt9zy4Xg5jJr45A/formResponse" method="POST" target="_blank">
             <div class="mb-4">
                 <label class="block text-sm font-medium">Name</label>
-                <input type="text" id="name" class="w-full p-2 border rounded" required>
+                <input type="text" name="entry.2087096369" class="w-full p-2 border rounded" required>
             </div>
             <div class="mb-4">
                 <label class="block text-sm font-medium">Email</label>
-                <input type="email" id="email" class="w-full p-2 border rounded" required>
+                <input type="email" name="entry.840650241" class="w-full p-2 border rounded" required>
             </div>
             <div class="mb-4">
-                <label class="block text-sm font-medium">Phone Number</label>
-                <input type="tel" id="phone" class="w-full p-2 border rounded" required>
+                <label class="block text-sm font-medium">Best Contact Info</label>
+                <input type="text" name="entry.1964116059" class="w-full p-2 border rounded" placeholder="Phone number, email, or social media handle" required>
             </div>
             <div class="mb-4">
-                <label class="block text-sm font-medium">Property Address</label>
-                <input type="text" id="address" class="w-full p-2 border rounded" required>
+                <label class="block text-sm font-medium">Neighborhood</label>
+                <input type="text" name="entry.2055383879" class="w-full p-2 border rounded" required>
             </div>
             <div class="mb-4">
                 <label class="block text-sm font-medium">Property Type</label>
-                <select id="propertyType" class="w-full p-2 border rounded">
-                    <option>Apartment</option>
-                    <option>House</option>
-                    <option>Condo</option>
+                <select name="entry.408421887" class="w-full p-2 border rounded">
+                    <option value="Room">Room</option>
+                    <option value="Apartment">Apartment</option>
                 </select>
             </div>
             <div class="mb-4">
                 <label class="block text-sm font-medium">Price (Rent/Sale)</label>
-                <input type="text" id="price" class="w-full p-2 border rounded" required>
+                <input type="text" name="entry.757054689" class="w-full p-2 border rounded" required>
             </div>
             <div class="mb-4">
                 <label class="block text-sm font-medium">Description</label>
-                <textarea id="description" class="w-full p-2 border rounded" required></textarea>
+                <textarea name="entry.1350483428" class="w-full p-2 border rounded" required></textarea>
             </div>
             <div class="mb-4">
-                <label class="block text-sm font-medium">Upload Photos</label>
-                <input type="file" id="photos" multiple class="w-full p-2 border rounded">
-            </div>
-            <div class="mb-4">
-                <label class="block text-sm font-medium">Upload Zelle Payment Screenshot</label>
-                <input type="file" id="paymentProof" class="w-full p-2 border rounded" required>
-            </div>
-
-            <!-- Pricing Options -->
-            <div class="mb-4">
-                <label class="block text-sm font-medium">Select Your Post Type</label>
-                <select id="postType" class="w-full p-2 border rounded">
-                    <option value="basic">Basic Listing Post - $25 (One-time IG story or single post)</option>
-                    <option value="premium">Premium Post - $50 (Multi-platform: IG, TikTok, Facebook Group)</option>
-                    <option value="featured">Featured Post - $100 (Pinned for 48-72 hours)</option>
-                    <option value="featured_ads">Featured Post with Paid Ads - $150</option>
-                    <option value="video">Video Walkthrough or Custom Ad Creation - $250</option>
+                <label class="block text-sm font-medium">Post Type</label>
+                <select name="entry.1261002649" class="w-full p-2 border rounded">
+                    <option value="Basic Listing Post - $25">Basic Listing Post - $25 (One-time IG story or single post)</option>
+                    <option value="Premium Post - $50">Premium Post - $50 (Multi-platform: IG, TikTok, Facebook Group)</option>
+                    <option value="Featured Post - $100">Featured Post - $100 (Pinned for 48-72 hours)</option>
+                    <option value="Featured Post with Paid Ads - $150">Featured Post with Paid Ads - $150</option>
+                    <option value="Video Walkthrough - $250">Video Walkthrough or Custom Ad Creation - $250</option>
                 </select>
             </div>
-
-            <!-- Additional Boost Option -->
             <div class="mb-4">
-                <label class="block text-sm font-medium">Boost Your Post with Paid Ads</label>
-                <select id="boostOption" class="w-full p-2 border rounded">
-                    <option value="none">None</option>
-                    <option value="boost_ig">Boost on Instagram - $50</option>
-                    <option value="boost_fb">Boost on Facebook - $50</option>
-                    <option value="boost_tiktok">Boost on TikTok - $50</option>
-                    <option value="boost_all">Boost on IG, FB, TikTok - $120</option>
+                <label class="block text-sm font-medium">Boost Option</label>
+                <select name="entry.2108676539" class="w-full p-2 border rounded">
+                    <option value="None">None</option>
+                    <option value="Instagram & Facebook Boost - $80 (combined option)">Instagram & Facebook Boost - $80 (combined option)</option>
+                    <option value="TikTok Boost - $50">Boost on TikTok - $50</option>
+                    <option value="All Platforms Boost - $120">Boost on IG, FB, TikTok - $120</option>
                 </select>
             </div>
-
+            <div class="mb-4">
+                <label class="block text-sm font-medium">Payment Screenshot</label>
+                <input type="file" name="entry.1166974658" accept="image/*" class="w-full p-2 border rounded" required>
+                <p class="text-xs text-gray-500 mt-1">Accepted formats: JPG, PNG, GIF (Max size: 10MB)</p>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium">Property Photos</label>
+                <input type="file" name="entry.1166974658" accept="image/*" multiple class="w-full p-2 border rounded">
+                <p class="text-xs text-gray-500 mt-1">Accepted formats: JPG, PNG, GIF (Max size: 10MB per image)</p>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium">Property Video</label>
+                <input type="file" name="entry.1166974658" accept="video/*" class="w-full p-2 border rounded">
+                <p class="text-xs text-gray-500 mt-1">Accepted formats: MP4, MOV, AVI (Max size: 100MB)</p>
+            </div>
             <button type="submit" class="bg-blue-600 text-white p-2 rounded w-full">Submit Property</button>
         </form>
         <p id="successMessage" class="hidden text-green-600 mt-4">Property submitted successfully!</p>
     </div>
     
     <script>
-        document.getElementById('propertyForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-            const response = await fetch('/submit-property', {
-                method: 'POST',
-                body: formData
-            });
-            if (response.ok) {
-                document.getElementById('successMessage').classList.remove('hidden');
-                this.reset();
-            }
+        document.getElementById('propertyForm').addEventListener('submit', function(event) {
+            document.getElementById('successMessage').classList.remove('hidden');
+            this.reset();
         });
     </script>
 </body>
