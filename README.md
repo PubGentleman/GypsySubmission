@@ -1,4 +1,4 @@
-# Property Submission Form
+# Gypsy Submission Form
 
 A modern, responsive property submission form with integrated payment processing and multiple posting options.
 
@@ -15,8 +15,8 @@ A modern, responsive property submission form with integrated payment processing
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/property-submission-form.git
-cd property-submission-form
+git clone https://github.com/yourusername/gypsysubmission.git
+cd gypsysubmission
 ```
 
 2. Open `index.html` in your browser or serve it using a local server:
@@ -34,7 +34,7 @@ This project can be deployed using GitHub Pages:
 4. Select the root folder as the source
 5. Click "Save"
 
-Your site will be available at: `https://yourusername.github.io/property-submission-form`
+Your site will be available at: `https://yourusername.github.io/gypsysubmission`
 
 ## Development
 
