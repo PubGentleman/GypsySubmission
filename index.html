@@ -49,7 +49,7 @@
                 <label class="block text-sm font-medium">Post Type</label>
                 <select name="entry.1261002649" class="w-full p-2 border rounded">
                     <option value="Basic Listing Post - $25">Basic Listing Post - $25 (One-time IG story or single post)</option>
-                    <option value="Premium Post - $50">Premium Post - $50 (Multi-platform: IG, TikTok, Facebook Group)</option>
+                    <option value="Premium Post - $50 (Multi-platform: IG, TikTok, Facebook Group)">Premium Post - $50 (Multi-platform: IG, TikTok, Facebook Group)</option>
                     <option value="Featured Post - $100">Featured Post - $100 (Pinned for 48-72 hours)</option>
                     <option value="Featured Post with Paid Ads - $150">Featured Post with Paid Ads - $150</option>
                     <option value="Video Walkthrough - $250">Video Walkthrough or Custom Ad Creation - $250</option>
@@ -68,26 +68,53 @@
                 <label class="block text-sm font-medium">Payment Screenshot</label>
                 <input type="file" name="entry.1166974658" accept="image/*" class="w-full p-2 border rounded" required>
                 <p class="text-xs text-gray-500 mt-1">Accepted formats: JPG, PNG, GIF (Max size: 10MB)</p>
+                <p class="text-xs text-blue-600 mt-1">Note: After submitting the form, you'll be redirected to Google Forms to upload your files.</p>
             </div>
             <div class="mb-4">
                 <label class="block text-sm font-medium">Property Photos</label>
                 <input type="file" name="entry.1166974658" accept="image/*" multiple class="w-full p-2 border rounded">
                 <p class="text-xs text-gray-500 mt-1">Accepted formats: JPG, PNG, GIF (Max size: 10MB per image)</p>
+                <p class="text-xs text-blue-600 mt-1">Note: After submitting the form, you'll be redirected to Google Forms to upload your files.</p>
             </div>
             <div class="mb-4">
                 <label class="block text-sm font-medium">Property Video</label>
                 <input type="file" name="entry.1166974658" accept="video/*" class="w-full p-2 border rounded">
                 <p class="text-xs text-gray-500 mt-1">Accepted formats: MP4, MOV, AVI (Max size: 100MB)</p>
+                <p class="text-xs text-blue-600 mt-1">Note: After submitting the form, you'll be redirected to Google Forms to upload your files.</p>
             </div>
             <button type="submit" class="bg-blue-600 text-white p-2 rounded w-full">Submit Property</button>
         </form>
-        <p id="successMessage" class="hidden text-green-600 mt-4">Property submitted successfully!</p>
+        <p id="successMessage" class="hidden text-green-600 mt-4">Form submitted successfully! You'll be redirected to Google Forms to upload your files.</p>
     </div>
     
     <script>
         document.getElementById('propertyForm').addEventListener('submit', function(event) {
-            document.getElementById('successMessage').classList.remove('hidden');
-            this.reset();
+            event.preventDefault();
+            
+            // Create FormData object
+            const formData = new FormData(this);
+            
+            // Submit to Google Form
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('successMessage').classList.remove('hidden');
+                    this.reset();
+                    // Redirect to Google Forms after a short delay
+                    setTimeout(() => {
+                        window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSdHjihfNHWsjapXIGJDyIQ4PMrgtLh_AvANt9zy4Xg5jJr45A/viewform';
+                    }, 2000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error submitting the form. Please try again.');
+            });
         });
     </script>
 </body>
